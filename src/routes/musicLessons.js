@@ -4,6 +4,7 @@ const verifyToken = require("../middleware/auth");
 const {
   authUser,
   getLessons,
+  getNotes,
   addNotes,
   deleteNotes,
   updateStatus,
@@ -15,17 +16,18 @@ const {
 router.post("/login", authUser);
 
 /* Route to get user lessons by email */
-router.get("/getLessons/:email", verifyToken, getLessons);
+router.get("/get-lessons/:email", verifyToken, getLessons);
 
-//Validar porque necesita saber cual es la lección
 /* Route to add new notes to the user lesson */
-router.post("/addNotes", verifyToken, addNotes);
+router.post("/add-notes/:id", verifyToken, addNotes);
 
-//Validar porque necesita saber cual es la lección
+/* Route to get notes by lessons */
+router.get("/get-notes/:id", verifyToken, getNotes);
+
 /* Route to delete notes by ID */
-router.delete("/deleteNotes/:id", verifyToken, deleteNotes);
+router.delete("/delete-notes/:id", verifyToken, deleteNotes);
 
 /* Route to update status by lesson ID */
-router.put("/updateStatus/:id", verifyToken, updateStatus);
+router.put("/update-status/:id", verifyToken, updateStatus);
 
 module.exports = router;
