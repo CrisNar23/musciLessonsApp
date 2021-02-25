@@ -16,18 +16,18 @@ const {
 router.post("/login", authUser);
 
 /* Route to get user lessons by email */
-router.get("/get-lessons/:email", verifyToken, getLessons);
+router.get("/get-lessons/:email", getLessons);
 
 /* Route to add new notes to the user lesson */
-router.post("/add-notes/:id", verifyToken, addNotes);
+router.post("/add-notes/:id", addNotes);
 
 /* Route to get notes by lessons */
-router.get("/get-notes/:id", verifyToken, getNotes);
+router.get("/get-notes/:id", getNotes);
 
 /* Route to delete notes by ID */
-router.delete("/delete-notes/:id", verifyToken, deleteNotes);
+router.delete("/delete-notes/:id", deleteNotes);
 
 /* Route to update status by lesson ID */
-router.put("/update-status/:id", verifyToken, updateStatus);
+router.put("/update-status/:id", updateStatus);
 
 module.exports = router;

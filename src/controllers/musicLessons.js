@@ -100,7 +100,7 @@ const updateStatus = async (req, res) => {
   try {
     const result = await dbConnection("users_lessons")
       .where("id_user_lessons", idUserLesson)
-      .update({ "id_state": newState });
+      .update({ id_state: newState });
     result
       ? res.status(200).json({ success: true, message: "ok" })
       : res.status(404).json({ message: "Record not found" });

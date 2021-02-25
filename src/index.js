@@ -10,6 +10,8 @@ const app = express();
 /* Middleware */
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(require("./middleware/auth"));
+
 
 /* Enable CORS */
 app.use(cors());
